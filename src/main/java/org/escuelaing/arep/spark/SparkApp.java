@@ -3,25 +3,23 @@ package org.escuelaing.arep.spark;
 import spark.Request;
 import spark.Response;
 
+import java.nio.charset.StandardCharsets;
+
 import static spark.Spark.*;
 
 public class SparkApp {
     public static void main(String[] args) {
+        HttpServer server = new HttpServer();
         staticFiles.location("/public");
         get("/hello", (req, res) -> "Hello World");
         get("/inicio", (req, res) -> {
             res.redirect("/index.html");
             return null;
         });
-        get("/search", (req, res) -> busqueda(req, res));
+            get("/search/*", (request, response) -> "prueba");
+       // path("/search", ()->{get("/:API/:value", (req, res) -> "Hello World");});
     }
-    private static Object busqueda(Request req, Response res) {
-        res.type("application/json");
-        String json ="{\n" +
-                "  \"hola\": \"prueba\"\n" +
-                "}" ;
-        return json;
-    }
+
     static int getPort() {
         if (System.getenv("PORT") != null) {
             return Integer.parseInt(System.getenv("PORT"));
