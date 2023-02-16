@@ -3,20 +3,22 @@ package org.escuelaing.arep.spark;
 import spark.Request;
 import spark.Response;
 
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 import static spark.Spark.*;
 
 public class SparkApp {
-    public static void main(String[] args) {
-        HttpServer server = new HttpServer();
+    static HttpServer httpServer = HttpServer.getInstance();
+    public static void main(String[] args) throws IOException {
         staticFiles.location("/public");
         get("/hello", (req, res) -> "Hello World");
         get("/inicio", (req, res) -> {
             res.redirect("/index.html");
             return null;
         });
-            get("/search/*", (request, response) -> "prueba");
+        get("/search/*", (req,res) -> "ya");
+        httpServer.run(args);
        // path("/search", ()->{get("/:API/:value", (req, res) -> "Hello World");});
     }
 

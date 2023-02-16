@@ -4,7 +4,7 @@ function loadValues(){
     var consulta;
     consulta = document.getElementById("archivo").value;
     //var URL_API = "http://localhost:4567/search";
-    var URL_API = "http://localhost:4567/search/"+ consulta;
+    var URL_API = "http://localhost:35000/search"+ consulta;
     console.log(URL_API);
     axios.get(URL_API, {
                        params: {
