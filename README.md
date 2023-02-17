@@ -18,7 +18,7 @@ Para descargar el proyecto y compilarlo de manera local puede clonar el reposito
 
 Ejecutar el programa mediante consola con el siguiente comando. También genera el ciclo de vida de este.
 
-    mvn clean package exec:java -Dexec.mainClass="org.escuelaing.arep.spark.SparApp"
+    mvn clean package exec:java -Dexec.mainClass="org.escuelaing.arep.spark.SparkApp"
     
 Para acceder a la navegacion web para vusualizar lo realizado
 
